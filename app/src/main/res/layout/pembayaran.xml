@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:id="@+id/itemPembayaranContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginBottom="16dp" />
+
+    <EditText
+        android:id="@+id/namaPemesanEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nama Pemesan"
+        android:layout_marginTop="16dp" />
+
+    <EditText
+        android:id="@+id/alamatPengirimanEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Alamat Pengiriman"
+        android:layout_marginTop="8dp" />
+
+    <EditText
+        android:id="@+id/nomorTeleponEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nomor Telepon"
+        android:layout_marginTop="8dp" />
+
+    <EditText
+        android:id="@+id/tanggalText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint=""
+        android:layout_marginTop="8dp" />
+
+    <TextView
+        android:id="@+id/totalPrice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Total: Rp. 0"
+        android:textSize="20sp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp" />
+
+    <Button
+        android:id="@+id/konfirmasiButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Konfirmasi Pembayaran"
+        android:layout_marginTop="16dp"
+        android:textColor="@color/black"
+        android:backgroundTint="#00EAFF"/>
+
+    <Button
+        android:id="@+id/batalButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Batal Pembayaran"
+        android:layout_marginTop="16dp"
+        android:textColor="@color/white"
+        android:backgroundTint="#FF0000"/>
+
+</LinearLayout>
