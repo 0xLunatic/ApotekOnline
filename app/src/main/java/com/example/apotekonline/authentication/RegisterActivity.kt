@@ -117,25 +117,24 @@ class RegisterActivity : AppCompatActivity() {
         val email = emailEditText.text.toString().trim()
         val password = passwordEditText.text.toString()
 
-        // Create a JSON body to send data
+        // Buat JSON untuk dikirim ke server
         val jsonBody = """
-            {
-                "username": "$username",
-                "email": "$email",
-                "password": "$password"
-            }
-        """.trimIndent()
+        {
+            "username": "$username",
+            "email": "$email",
+            "password": "$password"
+        }
+    """.trimIndent()
 
         val requestBody = RequestBody.create("application/json".toMediaType(), jsonBody)
 
         val request = Request.Builder()
-            .url("http://pharmeasy.infinityfreeapp.com/register.php") // Fixed URL path
+            .url("http://10.0.2.2/register.php") // Ganti dengan IP server lokal Anda
             .post(requestBody)
             .build()
 
         Log.d("RegisterRequest", "Sending registration request for email: $email")
 
-        // Execute the request
         client.newCall(request).enqueue(object : Callback {
             override fun onFailure(call: Call, e: IOException) {
                 Log.e("NetworkError", "Error: ${e.message}", e)
@@ -165,7 +164,7 @@ class RegisterActivity : AppCompatActivity() {
                                         Toast.LENGTH_SHORT
                                     ).show()
 
-                                    // Navigate to login screen
+                                    // Navigasi ke layar login
                                     startActivity(
                                         Intent(
                                             this@RegisterActivity,

@@ -133,7 +133,7 @@ class ChangePasswordActivity : AppCompatActivity() {
                             val jsonResponse = JSONObject(responseBody ?: "{}")
                             when {
                                 resp.isSuccessful && jsonResponse.optString("status") == "success" -> {
-                                    val intent = Intent(this, LoginActivity::class.java)
+                                    val intent = Intent(this@ChangePasswordActivity, LoginActivity::class.java)
                                     startActivity(intent)
                                     finish()
 
