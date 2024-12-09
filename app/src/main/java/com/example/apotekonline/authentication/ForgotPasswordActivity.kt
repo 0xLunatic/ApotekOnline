@@ -121,7 +121,7 @@ class ForgotPasswordActivity : AppCompatActivity() {
         )
 
         val request = Request.Builder()
-            .url("http://pharmeasy.infinityfreeapp.com/reset_password.php") // Ensure this is HTTPS
+            .url("${Config.API_ADDRESS}reset_password.php") // Ensure this is HTTPS
             .post(requestBody)
             .build()
 

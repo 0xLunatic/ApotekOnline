@@ -117,24 +117,25 @@ class RegisterActivity : AppCompatActivity() {
         val email = emailEditText.text.toString().trim()
         val password = passwordEditText.text.toString()
 
-        // Buat JSON untuk dikirim ke server
+        // Create a JSON body to send data
         val jsonBody = """
-        {
-            "username": "$username",
-            "email": "$email",
-            "password": "$password"
-        }
-    """.trimIndent()
+            {
+                "username": "$username",
+                "email": "$email",
+                "password": "$password"
+            }
+        """.trimIndent()
 
         val requestBody = RequestBody.create("application/json".toMediaType(), jsonBody)
 
         val request = Request.Builder()
-            .url("http://10.0.2.2/register.php") // Ganti dengan IP server lokal Anda
+            .url("${Config.API_ADDRESS}register.php") // Fixed URL path
             .post(requestBody)
             .build()
 
         Log.d("RegisterRequest", "Sending registration request for email: $email")
 
+        // Execute the request
         client.newCall(request).enqueue(object : Callback {
             override fun onFailure(call: Call, e: IOException) {
                 Log.e("NetworkError", "Error: ${e.message}", e)
@@ -164,7 +165,7 @@ class RegisterActivity : AppCompatActivity() {
                                         Toast.LENGTH_SHORT
                                     ).show()
 
-                                    // Navigasi ke layar login
+                                    // Navigate to login screen
                                     startActivity(
                                         Intent(
                                             this@RegisterActivity,

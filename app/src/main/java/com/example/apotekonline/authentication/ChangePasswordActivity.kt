@@ -104,7 +104,7 @@ class ChangePasswordActivity : AppCompatActivity() {
 
         // Create a request to your PHP script
         val request = Request.Builder()
-            .url("http://pharmeasy.infinityfreeapp.com/change_password.php")
+            .url("${Config.API_ADDRESS}change_password.php")
             .post(requestBody)
             .build()
 

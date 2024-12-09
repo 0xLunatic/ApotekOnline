@@ -32,15 +32,18 @@ class LoginActivity : AppCompatActivity() {
 
     // Create an OkHttpClient that trusts all certificates (FOR DEVELOPMENT ONLY)
     private fun createUnsafeOkHttpClient(): OkHttpClient {
+        // Create a trust manager that does not validate certificate chains
         val trustAllCerts = arrayOf<TrustManager>(object : X509TrustManager {
             override fun checkClientTrusted(chain: Array<out X509Certificate>?, authType: String?) {}
             override fun checkServerTrusted(chain: Array<out X509Certificate>?, authType: String?) {}
             override fun getAcceptedIssuers(): Array<X509Certificate> = arrayOf()
         })
 
+        // Install the all-trusting trust manager
         val sslContext = SSLContext.getInstance("SSL")
         sslContext.init(null, trustAllCerts, SecureRandom())
 
+        // Create an ssl socket factory with our all-trusting manager
         return OkHttpClient.Builder()
             .sslSocketFactory(sslContext.socketFactory, trustAllCerts[0] as X509TrustManager)
             .hostnameVerifier { _, _ -> true }
@@ -52,12 +55,14 @@ class LoginActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_login)
 
+        // Initialize views
         emailForm = findViewById(R.id.emailForm)
         passwordForm = findViewById(R.id.passwordForm)
         loginButton = findViewById(R.id.loginButton)
         forgotPasswordText = findViewById(R.id.forgotPasswordForm)
         signUpText = findViewById(R.id.registerAccountForm)
 
+        // Set a click listener on the login button
         loginButton.setOnClickListener {
             val email = emailForm.text.toString()
             val password = passwordForm.text.toString()
@@ -69,12 +74,14 @@ class LoginActivity : AppCompatActivity() {
             }
         }
 
+        // Set a click listener for "Forgot your password?"
         forgotPasswordText.setOnClickListener {
             val intent = Intent(this, ForgotPasswordActivity::class.java)
             startActivity(intent)
             finish()
         }
 
+        // Set a click listener for "Don't have an account? Sign Up"
         signUpText.setOnClickListener {
             val intent = Intent(this, RegisterActivity::class.java)
             startActivity(intent)
@@ -83,6 +90,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun loginUser(email: String, password: String) {
+        // Create a JSON body to send data
         val jsonBody = """
             {
                 "email": "$email",
@@ -92,13 +100,15 @@ class LoginActivity : AppCompatActivity() {
 
         val requestBody = RequestBody.create("application/json".toMediaType(), jsonBody)
 
+        // Create a request to your PHP script
         val request = Request.Builder()
-            .url("http://10.0.2.2/register.php") // Change to your server URL if not local
+            .url("${Config.API_ADDRESS}login.php")
             .post(requestBody)
             .build()
 
         Log.d("LoginRequest", request.toString())
 
+        // Execute the request
         client.newCall(request).enqueue(object : Callback {
             override fun onFailure(call: Call, e: IOException) {
                 Log.e("NetworkError", "Error: ${e.message}", e)
@@ -114,10 +124,12 @@ class LoginActivity : AppCompatActivity() {
 
                     runOnUiThread {
                         try {
+                            // Handle the response
                             val jsonResponse = JSONObject(responseBody)
                             val status = jsonResponse.getString("status")
                             if (status == "success") {
                                 Toast.makeText(this@LoginActivity, "Login Successful!", Toast.LENGTH_SHORT).show()
+                                // Proceed to the next activity
                                 val intent = Intent(this@LoginActivity, DashboardActivity::class.java)
                                 startActivity(intent)
                                 finish()

@@ -71,7 +71,7 @@ class VerifyOtpActivity : AppCompatActivity() {
         )
 
         val request = Request.Builder()
-            .url("http://pharmeasy.infinityfreeapp.com/verify_otp.php") // Update with your server URL
+            .url("${Config.API_ADDRESS}verify_otp.php") // Update with your server URL
             .post(requestBody)
             .build()
 
