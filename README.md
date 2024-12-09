@@ -20,5 +20,11 @@ ApotekOnline is an online-based pharmacy app integrating **MySQL** and **SQLite*
 3. Configure `config.php` with your database credentials.
 4. Open the project in Android Studio and run it.
 
+## MySQL IP Config
+1. Get your IPv4 Address from CMD and type `ipconfig`
+2. Make sure Constants.KT same as your IP Address
+3. Change value of `/res/xml/network_security_config.xml` to your IPv4 Address
+4. You can run it from your Mobile if already configured Apache.
+
 ## Contact
 For questions or feedback, email: dreamerdotid@gmail.com
