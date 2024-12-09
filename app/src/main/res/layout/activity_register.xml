@@ -166,7 +166,7 @@
                         android:text="REGISTER"
                         android:textAllCaps="true"
                         android:backgroundTint="@color/warnaUtama"
-                        android:textColor="@android:color/white" />
+                        android:textColor="@color/black" />
 
                     <!-- Login Link -->
                     <TextView

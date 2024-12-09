@@ -134,7 +134,7 @@
                 android:text="LOGIN"
                 android:textAllCaps="true"
                 android:backgroundTint="@color/warnaUtama"
-                android:textColor="@android:color/white" />
+                android:textColor="@color/black" />
 
             <!-- Signup Link -->
             <TextView
