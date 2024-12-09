@@ -17,8 +17,19 @@ ApotekOnline is an online-based pharmacy app integrating **MySQL** and **SQLite*
 1. Clone the repo:  
    `git clone https://github.com/0xLunatic/ApotekOnline.git`
 2. Import `pharmeasy.sql` into MySQL.
-3. Configure `config.php` with your database credentials.
+3. Configure `all .php` with your database credentials.
 4. Open the project in Android Studio and run it.
+
+## MySQL IP Config
+1. Get your IPv4 Address from CMD and type `ipconfig`
+2. Make sure Constants.KT same as your IP Address
+3. Change value of `/res/xml/network_security_config.xml` to your IPv4 Address
+4. You can run it from your Mobile if already configured Apache.
+
+## API Running
+1. Clone `https://github.com/0xLunatic/pharmeasy`
+2. Add to your MySQL HTDOCS Folder
+3. Run your MYSQL. DO NOT EVER CHANGE THE VALUE OF API SCRIPTS.
 
 ## Contact
 For questions or feedback, email: dreamerdotid@gmail.com
