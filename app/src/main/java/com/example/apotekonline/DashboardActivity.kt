@@ -30,12 +30,12 @@ class DashboardActivity : AppCompatActivity() {
             startActivity(pesanIntent)
         }
 
-//        // Inisialisasi ImageButton untuk gambar riwayat
-//        val imageButtonRiwayat: ImageButton = findViewById(R.id.riwayat)
-//        imageButtonRiwayat.setOnClickListener {
-//            // Intent untuk berpindah ke RiwayatActivity
-//            val riwayatIntent = Intent(this, RiwayatActivity::class.java)
-//            startActivity(riwayatIntent)
-//        }
+        // Inisialisasi ImageButton untuk gambar riwayat
+        val imageButtonRiwayat: ImageButton = findViewById(R.id.riwayat)
+        imageButtonRiwayat.setOnClickListener {
+            // Intent untuk berpindah ke RiwayatActivity
+            val riwayatIntent = Intent(this, RiwayatActivity::class.java)
+            startActivity(riwayatIntent)
+        }
     }
 }

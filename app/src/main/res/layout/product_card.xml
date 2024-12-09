@@ -44,7 +44,7 @@
             android:id="@+id/beli"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:backgroundTint="#00EAFF"
+            android:backgroundTint="#FF1ABC9C"
             android:text="Beli"
             android:textColor="@color/black" />
 
