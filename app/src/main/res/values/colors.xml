@@ -5,4 +5,8 @@
     <color name="warnaUtama">#1ABC9C</color>
     <color name="gray">#dedede</color>
     <color name="forgotPassword">#4ec6f7</color>
+    <color name="buttonTextColor">#FFFFFF</color>
+    <color name="editTextBackground">#EAEAEA</color>
+    <color name="editTextTextColor">#000000</color>
+    <color name="toolbarBackground">#FFFFFF</color>
 </resources>

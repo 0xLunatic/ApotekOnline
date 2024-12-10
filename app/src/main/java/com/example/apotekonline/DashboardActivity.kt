@@ -7,6 +7,7 @@ import android.widget.ImageButton
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.apotekonline.R
+import com.example.apotekonline.mapslistener.MapsActivity
 
 class DashboardActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -17,8 +18,10 @@ class DashboardActivity : AppCompatActivity() {
         val imageButtonGmaps: ImageButton = findViewById(R.id.cariApotek)
         imageButtonGmaps.setOnClickListener {
             // Membuka aplikasi Google Maps atau aplikasi peta lain
-            val gmmIntentUri = Uri.parse("geo:0,0?q=Apotek K24")
-            val mapIntent = Intent(Intent.ACTION_VIEW, gmmIntentUri)
+//            val gmmIntentUri = Uri.parse("geo:0,0?q=Apotek K24")
+//            val mapIntent = Intent(Intent.ACTION_VIEW, gmmIntentUri)
+//            startActivity(mapIntent)
+            val mapIntent = Intent(this, MapsActivity::class.java)
             startActivity(mapIntent)
         }
 

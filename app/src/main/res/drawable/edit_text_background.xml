@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="@color/toolbarBackground">
+
+    <!-- MapView for OpenStreetMap -->
+    <org.osmdroid.views.MapView
+        android:id="@+id/mapView"
+        android:layout_width="match_parent"
+        android:layout_height="438dp"
+        android:background="#CCCCCC"/>
+
+    <!-- Recenter Button inside the Map -->
+    <Button
+        android:id="@+id/recenterButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="@color/warnaUtama"
+        android:text="Recenter"
+        android:textColor="@color/buttonTextColor"
+        android:textSize="16sp"
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp"/>
+
+    <!-- Zoom Button beside the Recenter Button -->
+    <Button
+        android:id="@+id/zoomButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginBottom="16dp"
+        android:layout_marginStart="8dp"
+        android:backgroundTint="@color/warnaUtama"
+        android:text="Zoom"
+        android:textColor="@color/buttonTextColor"
+        android:textSize="16sp"
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp"/>
+
+    <!-- Device Location Name EditText below the map -->
+    <EditText
+        android:id="@+id/deviceLocationEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:hint="Device Location"
+        android:editable="false"
+        android:textColor="@color/editTextTextColor"
+        android:textSize="16sp"
+        android:background="@drawable/edit_text_background"
+        android:padding="8dp"/>
+
+    <!-- Closest Apotek Location Name EditText below the device location -->
+    <EditText
+        android:id="@+id/closestApotekEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:hint="Closest Apotek"
+        android:editable="false"
+        android:textColor="@color/editTextTextColor"
+        android:textSize="16sp"
+        android:background="@drawable/edit_text_background"
+        android:padding="8dp"/>
+
+    <!-- Back Button to exit the map -->
+    <Button
+        android:id="@+id/backButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Back"
+        android:backgroundTint="@android:color/holo_red_light"
+        android:textColor="@android:color/white"
+        android:layout_gravity="top|start"
+        android:layout_margin="8dp"
+        android:textSize="16sp"/>
+
+</FrameLayout>
