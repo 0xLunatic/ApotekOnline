@@ -17,10 +17,6 @@ class DashboardActivity : AppCompatActivity() {
         // Inisialisasi ImageButton cariApotek
         val imageButtonGmaps: ImageButton = findViewById(R.id.cariApotek)
         imageButtonGmaps.setOnClickListener {
-            // Membuka aplikasi Google Maps atau aplikasi peta lain
-//            val gmmIntentUri = Uri.parse("geo:0,0?q=Apotek K24")
-//            val mapIntent = Intent(Intent.ACTION_VIEW, gmmIntentUri)
-//            startActivity(mapIntent)
             val mapIntent = Intent(this, MapsActivity::class.java)
             startActivity(mapIntent)
         }
