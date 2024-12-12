@@ -21,6 +21,12 @@ class PembayaranActivity : AppCompatActivity() {
 
     private var totalPrice: Int = 0
 
+    // Konstanta untuk request code
+    companion object {
+        private const val REQUEST_ALAMAT_PENGIRIMAN = 1001
+        private const val REQUEST_PILIH_APOTEK = 2001
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.pembayaran)
@@ -82,18 +88,20 @@ class PembayaranActivity : AppCompatActivity() {
         val currentDate = getCurrentDate()
         findViewById<TextView>(R.id.tanggalText).text = currentDate
 
-        findViewById<EditText>(R.id.alamatPengirimanEditText).setOnClickListener {
-            val dialog = MapsStaticDialogFragment()
-            dialog.setOnAddressSelectedListener { address ->
-                findViewById<EditText>(R.id.alamatPengirimanEditText).setText(address)
-            }
-            dialog.show(supportFragmentManager, "MapsStaticDialogFragment")
-        }
-
-
         // Listener tombol konfirmasi pembayaran
         konfirmasiButton.setOnClickListener {
-            handlePayment(cartItems, currentDate)
+            val selectedLayanan = layananSpinner.selectedItem?.toString()
+
+            if (selectedLayanan == "Diantar ke Rumah") {
+                val namaPemesan = findViewById<EditText>(R.id.namaPemesanEditText).text.toString().trim()
+                val nomorTelepon = findViewById<EditText>(R.id.nomorTeleponEditText).text.toString().trim()
+
+                startActivityForResult(intent, REQUEST_ALAMAT_PENGIRIMAN)
+            } else if (selectedLayanan == "Ambil di Apotek") {
+                // Arahkan ke Pemilihan Apotek
+                val intent = Intent(this, PilihApotekActivity::class.java)
+                startActivityForResult(intent, REQUEST_PILIH_APOTEK) // Request code bisa disesuaikan
+            }
         }
 
         // Listener tombol batal pembayaran
@@ -178,5 +186,43 @@ class PembayaranActivity : AppCompatActivity() {
             Toast.makeText(this, "Gagal mendapatkan tanggal.", Toast.LENGTH_SHORT).show()
             ""
         }
+    }
+
+    /**
+     * Menangani data kembali dari AlamatPengirimanActivity atau PilihApotekActivity.
+     */
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (requestCode == REQUEST_ALAMAT_PENGIRIMAN && resultCode == RESULT_OK) {
+            val namaPemesan = data?.getStringExtra("NAMA_PEMESAN")
+            val nomorTelepon = data?.getStringExtra("NOMOR_TELEPON")
+            val alamatPengiriman = data?.getStringExtra("ALAMAT_PENGIRIMAN")
+
+            if (alamatPengiriman != null) {
+                handlePaymentWithAddress(namaPemesan, alamatPengiriman, nomorTelepon)
+            }
+        }
+
+        // Menangani hasil dari PilihApotekActivity
+        if (requestCode == REQUEST_PILIH_APOTEK && resultCode == RESULT_OK) {
+            val selectedApotek = data?.getStringExtra("SELECTED_APOTEK")
+            if (selectedApotek != null) {
+                Toast.makeText(this, "Anda memilih apotek: $selectedApotek", Toast.LENGTH_SHORT).show()
+                // Lanjutkan proses pembayaran atau simpan apotek terpilih
+            }
+        }
+    }
+
+    private fun handlePaymentWithAddress(namaPemesan: String?, alamatPengiriman: String?, nomorTelepon: String?) {
+        if (namaPemesan.isNullOrEmpty() || alamatPengiriman.isNullOrEmpty() || nomorTelepon.isNullOrEmpty()) {
+            Toast.makeText(this, "Harap lengkapi semua field.", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        // Lanjutkan proses pembayaran setelah alamat dikonfirmasi
+        val cartItems = keranjangDB.getAllCartItems()
+        val currentDate = getCurrentDate()
+        handlePayment(cartItems, currentDate)
     }
 }

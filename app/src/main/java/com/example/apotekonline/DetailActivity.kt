@@ -13,8 +13,6 @@ class DetailActivity : AppCompatActivity() {
     private lateinit var binding: DetailObatBinding
     private lateinit var keranjangDB: KeranjangDB
 
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 

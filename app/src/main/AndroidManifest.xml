@@ -64,6 +64,15 @@
         <activity
             android:name=".RiwayatActivity"
             android:exported="true" />
+        <activity
+            android:name=".AlamatPengirimanActivity"
+            android:exported="true" />
+        <activity
+            android:name=".PilihApotekActivity"
+            android:exported="true" />
+        <activity
+            android:name=".KonfirmasiPembayaranActivity"
+            android:exported="true" />
     </application>
 
 </manifest>

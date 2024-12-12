@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/cartItemsContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="16dp">
+            <!-- Dynamically added cart items will go here -->
+        </LinearLayout>
+
+
+        <!-- Data Pembelian -->
+        <TextView
+            android:id="@+id/namaPemesanTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nama Pemesan: "
+            android:textSize="16sp"
+            android:layout_marginTop="8dp" />
+
+        <TextView
+            android:id="@+id/alamatPengirimanTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Alamat Pengiriman: "
+            android:textSize="16sp"
+            android:layout_marginTop="8dp" />
+
+        <TextView
+            android:id="@+id/nomorTeleponTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nomor Telepon: "
+            android:textSize="16sp"
+            android:layout_marginTop="8dp" />
+
+        <TextView
+            android:id="@+id/currentDateTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tanggal: "
+            android:textSize="16sp"
+            android:layout_marginTop="8dp" />
+
+        <TextView
+            android:id="@+id/totalPriceTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Total Harga: "
+            android:textSize="16sp"
+            android:layout_marginTop="8dp" />
+
+        <!-- Tombol Konfirmasi Pembayaran -->
+        <Button
+            android:id="@+id/konfirmasiPembayaranButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Konfirmasi Pembayaran"
+            android:textColor="@android:color/white"
+            android:backgroundTint="#1ABC9C"
+            android:layout_marginTop="16dp" />
+
+        <Button
+            android:id="@+id/ubahDataPembeliButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ubah Data Pembeli"
+            android:layout_marginTop="16dp" />
+
+        <!-- Tombol Ubah Alamat Pengiriman -->
+        <Button
+            android:id="@+id/ubahAlamatButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ubah Alamat"
+            android:layout_marginTop="16dp" />
+
+    </LinearLayout>
+</ScrollView>
