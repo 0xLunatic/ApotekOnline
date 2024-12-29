@@ -1,9 +1,10 @@
-package com.example.apotekonline
+package com.example.apotekonline.activity
 
 import android.content.Intent
 import android.os.Bundle
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import com.example.apotekonline.R
 
 class PilihApotekActivity : AppCompatActivity() {
     private lateinit var apotekListView: ListView
@@ -22,22 +23,19 @@ class PilihApotekActivity : AppCompatActivity() {
         apotekListView.setOnItemClickListener { _, _, position, _ ->
             val selectedApotek = apotekList[position]
 
-            // Mengambil data dari intent sebelumnya, misalnya nama pemesan, alamat, dll
+            // Pastikan data diterima dengan benar
             val namaPemesan = intent.getStringExtra("NAMA_PEMESAN") ?: ""
             val alamatPengiriman = intent.getStringExtra("ALAMAT_PENGIRIMAN") ?: ""
             val nomorTelepon = intent.getStringExtra("NOMOR_TELEPON") ?: ""
-            val totalPrice = intent.getStringExtra("TOTAL_PRICE") ?: ""
 
-            // Kirim data ke KonfirmasiPembayaranActivity
-            val intent = Intent(this, KonfirmasiPembayaranActivity::class.java).apply {
-                putExtra("NAMA_PEMESAN", namaPemesan)
-                putExtra("ALAMAT_PENGIRIMAN", alamatPengiriman)
-                putExtra("NOMOR_TELEPON", nomorTelepon)
-                putExtra("TOTAL_PRICE", totalPrice)
-                putExtra("SELECTED_APOTEK", selectedApotek) // Mengirim apotek yang dipilih
-            }
-            startActivity(intent) // Arahkan ke KonfirmasiPembayaranActivity
-            finish() // Tutup PilihApotekActivity
+            // Kembalikan hasil ke PembayaranActivity
+            val resultIntent = Intent()
+            resultIntent.putExtra("SELECTED_APOTEK", selectedApotek)
+            resultIntent.putExtra("NAMA_PEMESAN", namaPemesan)
+            resultIntent.putExtra("NOMOR_TELEPON", nomorTelepon)
+            resultIntent.putExtra("ALAMAT_PENGIRIMAN", alamatPengiriman)
+            setResult(RESULT_OK, resultIntent)
+            finish()
         }
     }
 }

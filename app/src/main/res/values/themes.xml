@@ -1,8 +1,9 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Base.Theme.ApotekOnline" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">#1ABC9C</item>
+        <item name="colorPrimaryVariant">#16A085</item>
+        <item name="colorOnPrimary">#000000</item>
     </style>
 
     <style name="Theme.ApotekOnline" parent="Base.Theme.ApotekOnline" />

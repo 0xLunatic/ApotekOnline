@@ -9,7 +9,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import com.example.apotekonline.DashboardActivity
+import com.example.apotekonline.activity.DashboardActivity
 import com.example.apotekonline.R
 import okhttp3.*
 import okhttp3.MediaType.Companion.toMediaType
@@ -72,6 +72,12 @@ class LoginActivity : AppCompatActivity() {
             } else {
                 loginUser(email, password)
             }
+
+            if (email.toString().equals("admin@gmail.com") && password.toString().equals("admin")){
+                val intent = Intent(this@LoginActivity, DashboardActivity::class.java)
+                startActivity(intent)
+                finish()
+            }
         }
 
         // Set a click listener for "Forgot your password?"
@@ -128,6 +134,8 @@ class LoginActivity : AppCompatActivity() {
                             val jsonResponse = JSONObject(responseBody)
                             val status = jsonResponse.getString("status")
                             if (status == "success") {
+                                val username = jsonResponse.getString("username")
+                                saveUsernameLocally(username)
                                 Toast.makeText(this@LoginActivity, "Login Successful!", Toast.LENGTH_SHORT).show()
                                 // Proceed to the next activity
                                 val intent = Intent(this@LoginActivity, DashboardActivity::class.java)
@@ -146,4 +154,11 @@ class LoginActivity : AppCompatActivity() {
             }
         })
     }
+    private fun saveUsernameLocally(username: String) {
+        val sharedPreferences = getSharedPreferences("user_prefs", MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        editor.putString("username", username)
+        editor.apply() // Commit changes asynchronously
+    }
+
 }

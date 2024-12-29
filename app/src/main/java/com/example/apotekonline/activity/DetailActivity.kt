@@ -1,11 +1,13 @@
-package com.example.apotekonline
+package com.example.apotekonline.activity
 
-import KeranjangDB
+import com.example.apotekonline.constructor.KeranjangDB
 import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageButton
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.apotekonline.constructor.Product
+import com.example.apotekonline.R
 import com.example.apotekonline.databinding.DetailObatBinding
 
 class DetailActivity : AppCompatActivity() {

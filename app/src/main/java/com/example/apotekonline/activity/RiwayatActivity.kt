@@ -1,4 +1,4 @@
-package com.example.apotekonline
+package com.example.apotekonline.activity
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,6 +7,9 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
+import com.example.apotekonline.constructor.Pembayaran
+import com.example.apotekonline.constructor.PembayaranDB
+import com.example.apotekonline.R
 
 class RiwayatActivity : AppCompatActivity() {
 

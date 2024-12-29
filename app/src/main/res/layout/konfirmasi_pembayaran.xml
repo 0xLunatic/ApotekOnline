@@ -2,71 +2,89 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:background="@color/white">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <LinearLayout
-            android:id="@+id/cartItemsContainer"
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginTop="16dp">
-            <!-- Dynamically added cart items will go here -->
-        </LinearLayout>
+            android:layout_marginTop="16dp"
+            android:backgroundTint="@color/gray">
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
 
-        <!-- Data Pembelian -->
-        <TextView
-            android:id="@+id/namaPemesanTextView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Nama Pemesan: "
-            android:textSize="16sp"
-            android:layout_marginTop="8dp" />
+                <TextView
+                    android:id="@+id/namaPemesanTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Nama Pemesan: "
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:layout_marginTop="8dp" />
 
-        <TextView
-            android:id="@+id/alamatPengirimanTextView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Alamat Pengiriman: "
-            android:textSize="16sp"
-            android:layout_marginTop="8dp" />
+                <TextView
+                    android:id="@+id/metodePembayaranTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Metode Pembayaran: "
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:layout_marginTop="8dp" />
 
-        <TextView
-            android:id="@+id/nomorTeleponTextView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Nomor Telepon: "
-            android:textSize="16sp"
-            android:layout_marginTop="8dp" />
+                <TextView
+                    android:id="@+id/alamatPengirimanTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:text="Alamat Pengiriman: "
+                    android:textSize="16sp"
+                    android:layout_marginTop="8dp" />
 
-        <TextView
-            android:id="@+id/currentDateTextView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Tanggal: "
-            android:textSize="16sp"
-            android:layout_marginTop="8dp" />
+                <TextView
+                    android:id="@+id/nomorTeleponTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Nomor Telepon: "
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
 
-        <TextView
-            android:id="@+id/totalPriceTextView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Total Harga: "
-            android:textSize="16sp"
-            android:layout_marginTop="8dp" />
+                <TextView
+                    android:id="@+id/currentDateTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Tanggal: "
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:layout_marginTop="8dp" />
 
-        <!-- Tombol Konfirmasi Pembayaran -->
+                <TextView
+                    android:id="@+id/totalPriceTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Total Harga: "
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:layout_marginTop="8dp" />
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
         <Button
             android:id="@+id/konfirmasiPembayaranButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Konfirmasi Pembayaran"
-            android:textColor="@android:color/white"
+            android:textColor="@color/black"
             android:backgroundTint="#1ABC9C"
             android:layout_marginTop="16dp" />
 
@@ -75,13 +93,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Ubah Data Pembeli"
+            android:textColor="@color/black"
+            android:backgroundTint="@color/gray"
             android:layout_marginTop="16dp" />
 
-        <!-- Tombol Ubah Alamat Pengiriman -->
         <Button
             android:id="@+id/ubahAlamatButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:backgroundTint="@color/gray"
             android:text="Ubah Alamat"
             android:layout_marginTop="16dp" />
 

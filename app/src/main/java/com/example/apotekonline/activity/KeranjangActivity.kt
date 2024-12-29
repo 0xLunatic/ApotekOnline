@@ -1,6 +1,6 @@
-package com.example.apotekonline
+package com.example.apotekonline.activity
 
-import KeranjangDB
+import com.example.apotekonline.constructor.KeranjangDB
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
@@ -19,26 +19,30 @@ class KeranjangActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.keranjang)
+
+        // Initialize buttons
         val addButton: Button = findViewById(R.id.addButton)
         val bayarButton: Button = findViewById(R.id.bayarButton)
 
-        bayarButton.setOnClickListener {
-            val intent = Intent(this, PembayaranActivity::class.java)
+        // Add button click listener
+        addButton.setOnClickListener {
+            val intent = Intent(this, MenuPesanActivity::class.java)
             startActivity(intent)
         }
 
-        addButton.setOnClickListener {
-            val intent = Intent(this, MenuPesanActivity::class.java)
+        // Bayar button click listener
+        bayarButton.setOnClickListener {
+            val intent = Intent(this, PembayaranActivity::class.java)
             startActivity(intent)
         }
 
         // Initialize database
         keranjangDB = KeranjangDB(this)
 
-        // Get all cart items
+        // Get all cart items from the database
         val cartItems = keranjangDB.getAllCartItems()
 
-        // Reference to the container where items will be added
+        // Reference to the container for displaying cart items
         val cartItemsContainer = findViewById<LinearLayout>(R.id.cartItemsContainer)
 
         // Clear the container to prevent duplication
@@ -60,23 +64,26 @@ class KeranjangActivity : AppCompatActivity() {
             itemPrice.text = "Rp. ${item.price}"
             itemQuantity.text = "1"
 
-            // Handle button clicks
+            // Handle buttons for cart item (increase, decrease, remove)
             val removeButton = cartItemView.findViewById<ImageButton>(R.id.removeItemButton)
             val increaseButton = cartItemView.findViewById<ImageButton>(R.id.increaseButton)
             val decreaseButton = cartItemView.findViewById<ImageButton>(R.id.decreaseButton)
 
+            // Remove item button click listener
             removeButton.setOnClickListener {
                 keranjangDB.removeItemFromCart(item)
                 cartItemsContainer.removeView(cartItemView)
                 updateTotalPrice()
             }
 
+            // Increase quantity button click listener
             increaseButton.setOnClickListener {
                 val currentQuantity = itemQuantity.text.toString().toInt()
                 itemQuantity.text = (currentQuantity + 1).toString()
                 updateTotalPrice()
             }
 
+            // Decrease quantity button click listener
             decreaseButton.setOnClickListener {
                 val currentQuantity = itemQuantity.text.toString().toInt()
                 if (currentQuantity > 1) {
@@ -84,14 +91,16 @@ class KeranjangActivity : AppCompatActivity() {
                     updateTotalPrice()
                 }
             }
+
             // Add the inflated view to the container
             cartItemsContainer.addView(cartItemView)
         }
 
-        // Initialize total price
+        // Initialize total price calculation
         updateTotalPrice()
     }
 
+    // Function to update total price
     private fun updateTotalPrice() {
         var total = 0
         val cartItemsContainer = findViewById<LinearLayout>(R.id.cartItemsContainer)
@@ -101,10 +110,12 @@ class KeranjangActivity : AppCompatActivity() {
             val priceText = itemView.findViewById<TextView>(R.id.cartItemPrice).text.toString()
             val quantity = itemView.findViewById<TextView>(R.id.banyakItem).text.toString().toInt()
 
+            // Get the price of the item and multiply it by quantity
             val price = priceText.replace("Rp. ", "").toInt()
             total += price * quantity
         }
 
+        // Display total price
         findViewById<TextView>(R.id.totalPrice).text = "Rp. $total"
     }
 }

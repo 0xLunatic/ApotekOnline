@@ -2,7 +2,8 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:background="@color/gray">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -22,6 +23,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Nama Pemesan:"
+            android:textColor="@color/black"
             android:textSize="16sp"
             android:layout_marginTop="8dp" />
 
@@ -29,7 +31,9 @@
             android:id="@+id/namaPemesanEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColorHint="@color/textHint"
             android:hint="Masukkan Nama Pemesan"
+            android:textColor="@color/black"
             android:layout_marginTop="4dp" />
 
         <!-- Nomor Telepon -->
@@ -37,12 +41,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Nomor Telepon:"
+            android:textColor="@color/black"
             android:textSize="16sp"
             android:layout_marginTop="8dp" />
 
         <EditText
             android:id="@+id/nomorTeleponEditText"
             android:layout_width="match_parent"
+            android:textColorHint="@color/textHint"
+            android:textColor="@color/black"
             android:layout_height="wrap_content"
             android:hint="Masukkan Nomor Telepon"
             android:layout_marginTop="4dp"
@@ -52,27 +59,38 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Tanggal:"
+            android:textColor="@color/black"
             android:textSize="16sp"
             android:layout_marginTop="8dp" />
 
         <EditText
-            android:id="@+id/tanggalText"
+            android:id="@+id/tanggalPembayaran"
             android:layout_width="match_parent"
+            android:textColor="@color/black"
+            android:textColorHint="@color/textHint"
             android:layout_height="wrap_content"
-            android:hint=""
-            android:layout_marginTop="4dp" />
+            android:hint="Pilih Tanggal"
+            android:focusable="false"
+            android:clickable="true"
+            android:inputType="none"
+            android:padding="8dp"
+            android:layout_marginTop="8dp" />
+
 
         <!-- Pilihan Layanan -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Pilih Layanan:"
+            android:textColor="@color/black"
             android:textSize="16sp"
             android:layout_marginTop="16dp" />
 
         <Spinner
             android:id="@+id/pelayananSpinner"
             android:layout_width="match_parent"
+            android:textColorHint="@color/black"
+            android:textColor="@color/black"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:spinnerMode="dropdown" />
@@ -83,6 +101,7 @@
             android:layout_height="wrap_content"
             android:text="Pilih Metode Pembayaran:"
             android:textSize="16sp"
+            android:textColor="@color/black"
             android:layout_marginTop="16dp" />
 
         <Spinner
@@ -90,6 +109,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:textColorHint="@color/black"
+            android:textColor="@color/black"
             android:spinnerMode="dropdown" />
 
         <!-- Total Harga -->
@@ -100,6 +121,7 @@
             android:text="Total: Rp. 0"
             android:textSize="20sp"
             android:layout_marginTop="20dp"
+            android:textColor="@color/black"
             android:layout_marginBottom="20dp" />
 
         <!-- Tombol Konfirmasi -->

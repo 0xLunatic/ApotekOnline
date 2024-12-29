@@ -1,10 +1,9 @@
-package com.example.apotekonline
+package com.example.apotekonline.activity
 
-import KeranjangDB
+import com.example.apotekonline.constructor.KeranjangDB
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.View
 import android.widget.Button
 import android.widget.GridLayout
 import android.widget.ImageButton
@@ -13,11 +12,22 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
+import com.example.apotekonline.constructor.Product
+import com.example.apotekonline.R
 
 class MenuPesanActivity : AppCompatActivity() {
     private val productNames = arrayOf("Obat 1", "Obat 2", "Obat 3", "Obat 4", "Obat 5", "Obat 6", "Obat 7", "Obat 8")
     private val productPrices = arrayOf("15000", "20000", "25000", "30000", "35000", "40000", "5000", "12000")
-    private val productImages = arrayOf(R.drawable.ibuprofen, R.drawable.bg, R.drawable.bg, R.drawable.bg, R.drawable.bg, R.drawable.bg, R.drawable.bg, R.drawable.bg)
+    private val productImages = arrayOf(
+        R.drawable.ibuprofen,
+        R.drawable.bg,
+        R.drawable.bg,
+        R.drawable.bg,
+        R.drawable.bg,
+        R.drawable.bg,
+        R.drawable.bg,
+        R.drawable.bg
+    )
     private val productDescriptions = arrayOf("Deskripsi Obat 1", "Deskripsi Obat 2", "Deskripsi Obat 3", "Deskripsi Obat 4", "Deskripsi Obat 5", "Deskripsi Obat 6", "Deskripsi Obat 7","Deskripsi Obat 8")
     private lateinit var keranjangDB: KeranjangDB
 

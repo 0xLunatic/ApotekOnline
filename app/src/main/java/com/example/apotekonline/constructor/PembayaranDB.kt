@@ -1,4 +1,4 @@
-package com.example.apotekonline
+package com.example.apotekonline.constructor
 
 import android.content.ContentValues
 import android.content.Context
@@ -111,8 +111,12 @@ class PembayaranDB(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, 
             do {
                 val name = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_PRODUCT_NAME))
                 val price = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_PRODUCT_PRICE)) // Harga sebagai string
-                val imageResId = cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN_PRODUCT_IMAGE_RES_ID))
-                val description = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_PRODUCT_DESCRIPTION))
+                val imageResId = cursor.getInt(cursor.getColumnIndexOrThrow(
+                    COLUMN_PRODUCT_IMAGE_RES_ID
+                ))
+                val description = cursor.getString(cursor.getColumnIndexOrThrow(
+                    COLUMN_PRODUCT_DESCRIPTION
+                ))
 
                 val product = Product(name, price, imageResId, description)
                 cartItems.add(product)

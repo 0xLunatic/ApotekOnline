@@ -1,4 +1,4 @@
-package com.example.apotekonline
+package com.example.apotekonline.constructor
 
 data class Product(
     val name: String,

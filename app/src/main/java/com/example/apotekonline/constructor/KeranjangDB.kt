@@ -1,8 +1,10 @@
+package com.example.apotekonline.constructor
+
 import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
-import com.example.apotekonline.Product
+import android.util.Log
 
 class KeranjangDB(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
 
@@ -32,6 +34,27 @@ class KeranjangDB(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, n
         // Menghapus tabel lama jika ada versi baru
         db?.execSQL("DROP TABLE IF EXISTS $TABLE_NAME")
         onCreate(db)
+    }
+    fun removeCartItem(cartItemId: Int) {
+        // Get writable database
+        val db = this.writableDatabase
+
+        // Define where clause and arguments for deletion
+        val whereClause = "id = ?"
+        val whereArgs = arrayOf(cartItemId.toString())
+
+        // Execute delete operation
+        val result = db.delete(TABLE_NAME, whereClause, whereArgs)
+
+        // Check if deletion was successful
+        if (result > 0) {
+            Log.d("KeranjangDB", "Item dengan ID $cartItemId berhasil dihapus.")
+        } else {
+            Log.d("KeranjangDB", "Gagal menghapus item dengan ID $cartItemId.")
+        }
+
+        // Close database connection
+        db.close()
     }
 
     // Fungsi untuk menghapus item dari keranjang berdasarkan nama produk
@@ -63,6 +86,14 @@ class KeranjangDB(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, n
         db.close()
 
         return cartItems
+    }
+    fun removeCartItemByName(itemName: String): Boolean {
+        val db = writableDatabase
+        val selection = "name = ?"
+        val selectionArgs = arrayOf(itemName)
+        val rowsDeleted = db.delete("cart_items", selection, selectionArgs)
+
+        return rowsDeleted > 0
     }
 
     // Fungsi untuk menambahkan item ke keranjang

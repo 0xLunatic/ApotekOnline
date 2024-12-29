@@ -3,9 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
+    <meta-data
+        android:name="com.google.android.geo.API_KEY"
+        android:value="AIzaSyCLx9gbCRsz7tEW4ya4ZRbmbsbxovMbzX8" />
 
     <application
         android:allowBackup="true"
@@ -19,6 +22,12 @@
         android:theme="@style/Theme.ApotekOnline"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
+        <activity
+            android:name=".payment.TransferActivity"
+            android:exported="false" />
+        <activity
+            android:name=".payment.QRActivity"
+            android:exported="false" />
         <activity
             android:name=".mapslistener.MapsActivity"
             android:exported="false" />
@@ -38,7 +47,7 @@
             android:name=".authentication.VerifyOtpActivity"
             android:exported="false" />
         <activity
-            android:name=".DashboardActivity"
+            android:name=".activity.DashboardActivity"
             android:exported="false" />
         <activity
             android:name=".authentication.RegisterActivity"
@@ -50,29 +59,27 @@
             android:name=".authentication.LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".MenuPesanActivity"
+            android:name=".activity.MenuPesanActivity"
             android:exported="true" />
         <activity
-            android:name=".DetailActivity"
+            android:name=".activity.DetailActivity"
             android:exported="true" />
         <activity
-            android:name=".KeranjangActivity"
+            android:name=".activity.KeranjangActivity"
             android:exported="true" />
         <activity
-            android:name=".PembayaranActivity"
+            android:name=".activity.PembayaranActivity"
             android:exported="true" />
         <activity
-            android:name=".RiwayatActivity"
+            android:name=".activity.RiwayatActivity"
             android:exported="true" />
         <activity
-            android:name=".AlamatPengirimanActivity"
+            android:name=".activity.AlamatPengirimanActivity"
             android:exported="true" />
         <activity
-            android:name=".PilihApotekActivity"
+            android:name=".activity.PilihApotekActivity"
             android:exported="true" />
-        <activity
-            android:name=".KonfirmasiPembayaranActivity"
-            android:exported="true" />
+        <activity android:name=".activity.KonfirmasiPembayaranActivity" />
     </application>
 
 </manifest>
