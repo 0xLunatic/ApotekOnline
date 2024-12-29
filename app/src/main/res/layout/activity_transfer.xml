@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".payment.TransferActivity">
+
+    <!-- Transfer Method Text -->
+    <TextView
+        android:id="@+id/transferMethodText"
+        android:layout_width="wrap_content"
+        android:textStyle="bold"
+        android:layout_height="wrap_content"
+        android:text="Payment Method"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="32dp"
+        android:layout_marginStart="16dp"/>
+
+    <!-- Transfer Method Value -->
+    <TextView
+        android:id="@+id/transferMethodValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select Payment Method"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toBottomOf="@+id/transferMethodText"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="16dp"/>
+
+    <!-- Name Text -->
+    <TextView
+        android:id="@+id/transferNameText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Name"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toBottomOf="@+id/transferMethodValue"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"/>
+
+    <!-- Name Value -->
+    <TextView
+        android:id="@+id/transferNameValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="John Doe"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toBottomOf="@+id/transferNameText"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="16dp"/>
+
+    <!-- VA Number Text -->
+
+    <!-- VA Number Value -->
+    <TextView
+        android:id="@+id/transferVANumberText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="VA Number"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/transferNameValue" />
+
+    <TextView
+        android:id="@+id/transferVANumberValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="123456789"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toBottomOf="@+id/transferVANumberText"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="16dp"/>
+
+    <!-- Konfirmasi Pembayaran Button -->
+    <Button
+        android:id="@+id/konfirmasiPembayaranButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Konfirmasi Pembayaran"
+        app:layout_constraintTop_toBottomOf="@+id/transferVANumberValue"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="16dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
