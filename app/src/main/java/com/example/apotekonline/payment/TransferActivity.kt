@@ -11,16 +11,15 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.apotekonline.R
 import com.example.apotekonline.activity.DashboardActivity
-import org.w3c.dom.Text
 
 class TransferActivity : AppCompatActivity() {
-    private lateinit var konfirmasiButton : Button
+    private lateinit var konfirmasiPembayaranButton : Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_transfer)
 
-        konfirmasiButton = findViewById(R.id.konfirmasiButton)
+        konfirmasiPembayaranButton = findViewById(R.id.konfirmasiPembayaranButton)
 
         val transferMethod = intent.getStringExtra("TRANSFER_METHOD")
         val transferName = intent.getStringExtra("TRANSFER_NAME")
@@ -30,7 +29,7 @@ class TransferActivity : AppCompatActivity() {
         findViewById<TextView>(R.id.transferNameValue).text = transferName
         findViewById<TextView>(R.id.transferVANumberValue).text = transferNumber
 
-        konfirmasiButton.setOnClickListener {
+        konfirmasiPembayaranButton.setOnClickListener {
             val intent = Intent(this, DashboardActivity::class.java)
             startActivity(intent)
             Toast.makeText(this, "Berhasil Konfrmasi Pembayaran", Toast.LENGTH_SHORT)

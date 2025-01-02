@@ -1,11 +1,11 @@
 package com.example.apotekonline.constructor
 
 data class Pembayaran(
-    val id: Int,
-    val nama: String,
-    val alamat: String,
+    val id: Int = 0,
+    val namaPemesan: String,
+    val alamatPengiriman: String,
+    val metodePembayaran: String,
     val nomorTelepon: String,
-    val totalHarga: Int,
-    val tanggal: String, // Tambahkan tanggal jika perlu
-    val jumlah_obat: Int // Tambahkan jumlah obat
+    val tanggal: String,
+    val totalHarga: Int
 )

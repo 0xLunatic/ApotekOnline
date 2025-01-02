@@ -22,9 +22,6 @@
             android:name=".payment.TransferActivity"
             android:exported="false" />
         <activity
-            android:name=".payment.QRActivity"
-            android:exported="false" />
-        <activity
             android:name=".mapslistener.MapsActivity"
             android:exported="false" />
         <activity
